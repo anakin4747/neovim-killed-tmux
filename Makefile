@@ -1,3 +1,7 @@
 
+.PHONY: default
+default:
+	./scripts/cqfd/cqfd
+
 %:
-	nix develop .\#$@
+	./scripts/cqfd/cqfd -b $@

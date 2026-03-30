@@ -1,0 +1,12 @@
+[project]
+org='anakin4747'
+name='neovim_killed_tmux'
+
+[build]
+command=""
+
+[tmux]
+command="tmux -f /tmux.conf"
+docker_run_args="-v ./tmux-stuff/tmux.conf:/tmux.conf"
+
+# vi: ft=ini
