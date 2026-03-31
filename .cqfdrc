@@ -5,25 +5,21 @@ name='neovim_killed_tmux'
 [tmux]
 command="tmux -f /tmux.conf"
 docker_run_args=" \
-    --detach-keys=ctrl-e,e \
     --volume=./tmux-stuff/tmux.conf:/tmux.conf \
 "
 
 [nvim-first-issue]
 command="nvim +terminal"
-docker_run_args="--detach-keys=ctrl-e,e"
 
 [nvim-second-issue]
 command="nvim +terminal"
 docker_run_args=" \
-    --detach-keys=ctrl-e,e \
     --volume=./nvim-stuff/first-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
 "
 
 [nvim-third-issue]
 command="nvim +terminal"
 docker_run_args=" \
-    --detach-keys=ctrl-e,e \
     --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
     --volume=./bash-stuff/server-bashrc:/home/$USER/.bashrc \
 "
@@ -31,7 +27,6 @@ docker_run_args=" \
 [nvim-fourth-issue]
 command="nvim +terminal"
 docker_run_args=" \
-    --detach-keys=ctrl-e,e \
     --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
     --volume=./nvim-stuff/v:/usr/local/bin/v \
     --volume=./bash-stuff/server-bashrc:/home/$USER/.bashrc \
@@ -41,7 +36,6 @@ docker_run_args=" \
 [build]
 command="bash"
 docker_run_args=" \
-    --detach-keys=ctrl-e,e \
     --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
     --volume=./nvim-stuff/v-attach:/usr/local/bin/v \
     --volume=./bash-stuff/server-bashrc:/home/$USER/.bashrc \
@@ -50,7 +44,6 @@ docker_run_args=" \
 [osc7]
 command="bash"
 docker_run_args=" \
-    --detach-keys=ctrl-e,e \
     --volume=./nvim-stuff/osc7.lua:/home/$USER/.config/nvim/init.lua \
     --volume=./nvim-stuff/v-attach:/usr/local/bin/v \
     --volume=./bash-stuff/osc7-bashrc:/home/$USER/.bashrc \
@@ -59,7 +52,6 @@ docker_run_args=" \
 [zsh]
 command="zsh"
 docker_run_args=" \
-    --detach-keys=ctrl-e,e \
     --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
     --volume=./nvim-stuff/v-attach:/usr/local/bin/v \
     --volume=./zsh-stuff/server-zshrc:/home/$USER/.zshrc \
@@ -68,7 +60,6 @@ docker_run_args=" \
 [osc7-zsh]
 command="zsh"
 docker_run_args=" \
-    --detach-keys=ctrl-e,e \
     --volume=./nvim-stuff/osc7-zsh.lua:/home/$USER/.config/nvim/init.lua \
     --volume=./nvim-stuff/v-attach:/usr/local/bin/v \
     --volume=./zsh-stuff/osc7-zshrc:/home/$USER/.zshrc \
