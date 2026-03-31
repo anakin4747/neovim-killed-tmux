@@ -2,11 +2,49 @@
 org='anakin4747'
 name='neovim_killed_tmux'
 
-[build]
-command=""
-
 [tmux]
 command="tmux -f /tmux.conf"
-docker_run_args="-v ./tmux-stuff/tmux.conf:/tmux.conf"
+docker_run_args=" \
+    --detach-keys=ctrl-e,e \
+    --volume=./tmux-stuff/tmux.conf:/tmux.conf \
+"
+
+[nvim-first-issue]
+command="nvim +terminal"
+docker_run_args="--detach-keys=ctrl-e,e"
+
+[nvim-second-issue]
+command="nvim +terminal"
+docker_run_args=" \
+    --detach-keys=ctrl-e,e \
+    --volume=./nvim-stuff/first-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
+"
+
+[nvim-third-issue]
+command="nvim +terminal"
+docker_run_args=" \
+    --detach-keys=ctrl-e,e \
+    --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
+    --volume=./bash-stuff/server-bashrc:/home/$USER/.bashrc \
+"
+
+[nvim-fourth-issue]
+command="nvim +terminal"
+docker_run_args=" \
+    --detach-keys=ctrl-e,e \
+    --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
+    --volume=./nvim-stuff/v:/usr/local/bin/v \
+    --volume=./bash-stuff/server-bashrc:/home/$USER/.bashrc \
+"
+
+# cqfd requires a build section for the default build
+[build]
+command="bash"
+docker_run_args=" \
+    --detach-keys=ctrl-e,e \
+    --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
+    --volume=./nvim-stuff/v-attach:/usr/local/bin/v \
+    --volume=./bash-stuff/server-bashrc:/home/$USER/.bashrc \
+"
 
 # vi: ft=ini
