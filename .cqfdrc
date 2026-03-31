@@ -47,4 +47,13 @@ docker_run_args=" \
     --volume=./bash-stuff/server-bashrc:/home/$USER/.bashrc \
 "
 
+[osc7]
+command="bash"
+docker_run_args=" \
+    --detach-keys=ctrl-e,e \
+    --volume=./nvim-stuff/osc7.lua:/home/$USER/.config/nvim/init.lua \
+    --volume=./nvim-stuff/v-attach:/usr/local/bin/v \
+    --volume=./bash-stuff/osc7-bashrc:/home/$USER/.bashrc \
+"
+
 # vi: ft=ini
