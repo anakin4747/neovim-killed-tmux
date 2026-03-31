@@ -1,0 +1,6 @@
+
+chpwd() {
+    printf '\033]7;file://%s\033\\' "$PWD"
+}
+
+# vi: ft=sh

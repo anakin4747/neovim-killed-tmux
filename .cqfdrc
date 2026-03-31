@@ -56,4 +56,22 @@ docker_run_args=" \
     --volume=./bash-stuff/osc7-bashrc:/home/$USER/.bashrc \
 "
 
+[zsh]
+command="zsh"
+docker_run_args=" \
+    --detach-keys=ctrl-e,e \
+    --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
+    --volume=./nvim-stuff/v-attach:/usr/local/bin/v \
+    --volume=./zsh-stuff/server-zshrc:/home/$USER/.zshrc \
+"
+
+[osc7-zsh]
+command="zsh"
+docker_run_args=" \
+    --detach-keys=ctrl-e,e \
+    --volume=./nvim-stuff/osc7-zsh.lua:/home/$USER/.config/nvim/init.lua \
+    --volume=./nvim-stuff/v-attach:/usr/local/bin/v \
+    --volume=./zsh-stuff/osc7-zshrc:/home/$USER/.zshrc \
+"
+
 # vi: ft=ini
