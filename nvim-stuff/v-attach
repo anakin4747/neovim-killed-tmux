@@ -22,7 +22,7 @@ fi
 
 for arg in "$@"; do
     if [ -d "$arg" ]; then
-        echo "$0: error: '$arg' is a directory"
+        echo "$0: error: '$arg' is a directory" >&2
         exit 1
     fi
 done
@@ -31,7 +31,7 @@ if pstree -s $$ | grep -q nvim; then
     # inside neovim
 
     if [ "$attach" = "true" ]; then
-        echo "cannot attach: already inside neovim"
+        echo "$0: error: cannot attach: already inside neovim" >&2
         exit 1
     fi
 
@@ -56,7 +56,7 @@ fi
 sockets=$(ss -xl 2> /dev/null | awk '/nvim/ { print $5 }')
 
 if [ -z "$sockets" ]; then
-    echo "found no neovim sockets"
+    echo "$0: error: no neovim sockets found" >&2
     exit 1
 fi
 
@@ -69,7 +69,7 @@ fi
 # multiple sockets found
 selected=$(fzf <<< "$sockets")
 if ! [ -S "$selected" ]; then
-    echo "selection is not a neovim socket"
+    echo "$0: error: selection is not a neovim socket" >&2
     exit 1
 fi
 

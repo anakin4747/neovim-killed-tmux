@@ -16,7 +16,7 @@ fi
 
 for arg in "$@"; do
     if [ -d "$arg" ]; then
-        echo "$0: error: '$arg' is a directory"
+        echo "$0: error: '$arg' is a directory" >&2
         exit 1
     fi
 done
