@@ -10,6 +10,8 @@
      - no gf or gx
      - no <C-o> or <C-i>
      - no zt or zb
+     - no yanking or pasting from registers
+     - no macros
    - needs a tmux plugin and a vim plugin just to get windows to act similar
    - duplicated window management
 
