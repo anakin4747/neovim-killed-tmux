@@ -62,7 +62,7 @@ fi
 
 # if only one socket
 if [ "$(printf "%s\n" "$sockets" | wc -l)" -eq 1 ]; then
-    nvim --remote-ui --server "$sockets"
+    nvim --server "$sockets" --remote-ui
     exit
 fi
 
@@ -73,4 +73,4 @@ if ! [ -S "$selected" ]; then
     exit 1
 fi
 
-nvim --remote-ui --server "$selected"
+nvim --server "$selected" --remote-ui
