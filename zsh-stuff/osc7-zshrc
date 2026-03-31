@@ -1,4 +1,9 @@
 
+# :help terminal-osc133
+precmd() {
+    printf "\033]133;A\007"
+}
+
 chpwd() {
     printf '\033]7;file://%s\033\\' "$PWD"
 }

@@ -1,3 +1,7 @@
+
+# :help terminal-osc133
+PROMPT_COMMAND='printf "\033]133;A\007"'
+
 cd() {
     builtin cd "$@" || return
     printf '\033]7;file://%s\033\\' "$PWD"
