@@ -4,6 +4,7 @@ precmd() {
     printf "\033]133;A\007"
 }
 
+# :help terminal-osc7
 chpwd() {
     printf '\033]7;file://%s\033\\' "$PWD"
 }

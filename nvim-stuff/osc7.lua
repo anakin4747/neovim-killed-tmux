@@ -1,5 +1,6 @@
 require('nvim-stuff.second-issue-fix')
 
+-- :help terminal-osc7
 vim.api.nvim_create_autocmd({ 'TermRequest' }, {
     desc = 'Handles OSC 7 dir change requests',
     callback = function(ev)

@@ -4,6 +4,7 @@ PROMPT_COMMAND='printf "\033]133;A\007"'
 
 cd() {
     builtin cd "$@" || return
+    # :help terminal-osc7
     printf '\033]7;file://%s\033\\' "$PWD"
 }
 
