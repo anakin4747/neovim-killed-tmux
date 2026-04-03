@@ -2,6 +2,9 @@
 org='anakin4747'
 name='neovim_killed_tmux'
 
+[build]
+command="bash"
+
 [tmux]
 command="tmux -f /tmux.conf"
 docker_run_args=" \
@@ -32,8 +35,7 @@ docker_run_args=" \
     --volume=./bash-stuff/server-bashrc:/home/$USER/.bashrc \
 "
 
-# cqfd requires a build section for the default build
-[build]
+[full]
 command="bash"
 docker_run_args=" \
     --volume=./nvim-stuff/second-issue-fix.lua:/home/$USER/.config/nvim/init.lua \
