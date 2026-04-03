@@ -114,8 +114,14 @@ It can be useful to set these in your init file:
 ```lua
 vim.opt.shell = "/bin/zsh"        -- or whatever your shell is
 vim.opt.scrollback = 1000000      -- max scrollback (default 10000)
+vim.opt.path = ".,**"             -- gf searches recursively if file isn't in pwd
 ```
 
 `scrollback` (`scbk`) controls how many lines are kept beyond the visible
 screen in a terminal buffer before lines at the top are discarded. The default
 is 10000; the maximum is 1000000.
+
+`path` is the list of directories searched by `gf` (and `:find`). The default
+only includes the current file's directory and the working directory. Setting
+it to `.,**` adds a recursive wildcard so `gf` will search recursively in your
+current working directory.
