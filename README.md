@@ -1,6 +1,12 @@
 
 # NEOVIM KILLED TMUX
 
+<div align="center">
+    
+[![Neovim Killed Tmux](https://img.youtube.com/vi/W6R5sDtjlZk/mqdefault.jpg)](https://www.youtube.com/watch?v=W6R5sDtjlZk)
+    
+</div>
+
 # WHY TMUX + NVIM KINDA SUCKS
 
    issues:
@@ -8,7 +14,7 @@
      - no visual mode support only line and block
      - no text object support
      - no gf or gx
-     - no <C-o> or <C-i>
+     - no `<C-o>` or `<C-i>`
      - no zt or zb
      - no yanking or pasting from registers
      - no macros
